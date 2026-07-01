@@ -1,0 +1,217 @@
+%!TEX program = xelatex
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=0pt,noheadfoot]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[skins]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\setmainfont{Poppins}[
+  UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,
+  Path=/usr/share/fonts/truetype/google-fonts/,Extension=.ttf]
+\newfontfamily\Plight{Poppins}[UprightFont=*-Light,BoldFont=*-Medium,
+  Path=/usr/share/fonts/truetype/google-fonts/,Extension=.ttf]
+\newfontfamily\Pmed{Poppins}[UprightFont=*-Medium,BoldFont=*-Bold,
+  Path=/usr/share/fonts/truetype/google-fonts/,Extension=.ttf]
+
+% --- colour palette ---
+\definecolor{sidebg}  {HTML}{0F172A}
+\definecolor{acc}     {HTML}{3B82F6}
+\definecolor{accd}    {HTML}{1D4ED8}
+\definecolor{acclight}{HTML}{93C5FD}   % muted blue for sidebar links
+\definecolor{body}    {HTML}{1E293B}
+\definecolor{sub}     {HTML}{475569}
+\definecolor{rule}    {HTML}{CBD5E1}
+\definecolor{dimwh}   {HTML}{94A3B8}   % dim white for sidebar labels
+
+\hypersetup{colorlinks,urlcolor=acc,linkcolor=acc,
+  pdfauthor={Bernardo Micol Righi},pdftitle={Bernardo Righi Curriculo}}
+
+\setlength\parindent{0pt}\setlength\parskip{0pt}
+\pagestyle{empty}
+
+\newlength\SW\setlength\SW{65mm}
+\newlength\MW\setlength\MW{132mm}   % 210 - 65 - 13mm margins
+
+% --- section headings ---
+\newcommand\msec[1]{\vspace{5pt}%
+  {\Pmed\color{accd}\fontsize{7.8pt}{9pt}\selectfont\MakeUppercase{#1}}%
+  \par\nobreak\vspace{1pt}{\color{acc}\hrule height .5pt}\vspace{3pt}}
+
+\newcommand\ssec[1]{\par\vspace{5pt}%
+  {\Pmed\color{acclight}\fontsize{6.5pt}{7.5pt}\selectfont\MakeUppercase{#1}}%
+  \par\nobreak\vspace{1pt}{\color{accd}\hrule height .35pt}\vspace{3pt}\par}
+
+% --- project entry ---
+\newcommand\proj[4]{%
+  {\Pmed\color{body}\fontsize{8.5pt}{10pt}\selectfont #1}\hfill
+  {\color{sub}\fontsize{6.5pt}{7pt}\selectfont\href{#3}{$\nearrow$ github}}%
+  \par\vspace{.5pt}%
+  {\color{accd}\fontsize{7pt}{8.5pt}\selectfont\textit{#2}}%
+  \par\vspace{1.5pt}%
+  {\Plight\color{sub}\fontsize{7.5pt}{10.5pt}\selectfont #4}\vspace{3pt}}
+
+% --- sidebar content saved into a box ---
+\newsavebox\Sidebar
+\savebox\Sidebar{%
+  \begin{minipage}[t][297mm][t]{\SW}
+  \color{white}
+  \vspace{6mm}
+  % avatar circle
+  \begin{center}
+    \tikz{
+      \fill[accd](0,0)circle(.95cm);
+      \fill[acc] (0,0)circle(.88cm);
+      \node at(0,0){\color{white}\Pmed\fontsize{21pt}{21pt}\selectfont BR};
+    }
+    \par\vspace{3mm}
+    {\Pmed\color{white}\fontsize{12pt}{14pt}\selectfont Bernardo Righi}
+    \par\vspace{2pt}
+    {\textcolor{acclight}{\fontsize{7pt}{9pt}\selectfont Desenvolvedor Back-End · Eng. de IA}}
+  \end{center}
+  \vspace{2mm}
+  \hspace*{5mm}\begin{minipage}{\dimexpr\SW-10mm\relax}
+    %-- Contact --
+    \ssec{Contato}
+    {\fontsize{7pt}{10.5pt}\selectfont
+      {\color{dimwh}Telefone:}~{\color{white}+55 (51) 99601-1501}\par\vspace{2pt}
+      {\color{dimwh}E-mail:}~{\color{acclight}bernardomicolrighi@outlook.com}\par\vspace{2pt}
+      {\color{dimwh}Localidade:}~{\color{white}Rio Grande do Sul, BR}\par\vspace{2pt}
+      {\color{dimwh}Portfolio:}~{\color{acclight}righi.dev}\par\vspace{2pt}
+      {\color{dimwh}GitHub:}~{\color{acclight}github.com/righibe}\par\vspace{2pt}
+      {\color{dimwh}LinkedIn:}~{\color{acclight}linkedin/bernardo-righi}\par\vspace{2pt}
+      {\color{dimwh}Lattes:}~{\color{acclight}lattes.cnpq.br}\par\vspace{2pt}
+      {\color{dimwh}Acad.:}~{\color{acclight}brighi@edu.unisinos.br}
+    }
+    %-- Education --
+    \ssec{Formacao}
+    {\Pmed\color{white}\fontsize{7.8pt}{9.5pt}\selectfont Bac. Ciencia da Computacao}\par\vspace{1pt}
+    {\color{acclight}\fontsize{7.2pt}{9pt}\selectfont Unisinos}\par\vspace{1pt}
+    {\color{dimwh}\fontsize{6.5pt}{8pt}\selectfont Fev 2026 -- Atual · RS}
+    %-- Languages --
+    \ssec{Idiomas}
+    {\fontsize{7.8pt}{11pt}\selectfont
+      {\Pmed\color{white}Portuguese}~{\textcolor{acclight}{\fontsize{7pt}{7pt}\selectfont Native}}\par
+      {\Pmed\color{white}English}~{\textcolor{acclight}{\fontsize{7pt}{7pt}\selectfont Fluent}}\par
+      {\Pmed\color{white}Spanish}~{\textcolor{acclight}{\fontsize{7pt}{7pt}\selectfont Intermediate}}
+    }
+    %-- Skills --
+    \ssec{Habilidades}
+    \par    \par{\color{dimwh}\fontsize{5.8pt}{7pt}\selectfont LINGUAGENS}\par\vspace{1.5pt}
+    {\color{white}\fontsize{7pt}{9pt}\selectfont Python · Java · C · JavaScript · SQL}\par\vspace{3pt}
+
+    {\color{dimwh}\fontsize{5.8pt}{7pt}\selectfont FRAMEWORKS}\par\vspace{1.5pt}
+    {\color{white}\fontsize{7pt}{9pt}\selectfont Spring Boot · Django · Flask · Discord.py}\par\vspace{3pt}
+
+    {\color{dimwh}\fontsize{5.8pt}{7pt}\selectfont IA / ML}\par\vspace{1.5pt}
+    {\color{white}\fontsize{7pt}{9pt}\selectfont LLM APIs · scikit-learn · DecisionTree · RandomForest}\par\vspace{3pt}
+
+    {\color{dimwh}\fontsize{5.8pt}{7pt}\selectfont DEVOPS \& INFRA}\par\vspace{1.5pt}
+    {\color{white}\fontsize{7pt}{9pt}\selectfont Docker · GitHub Actions · CI/CD · Git · Linux}\par\vspace{3pt}
+
+    {\color{dimwh}\fontsize{5.8pt}{7pt}\selectfont BANCO DE DADOS}\par\vspace{1.5pt}
+    {\color{white}\fontsize{7pt}{9pt}\selectfont MySQL · JPA / Hibernate}
+    %-- Courses --
+    \ssec{Cursos}
+    {\color{white}\fontsize{6.8pt}{9.8pt}\selectfont
+      Maratona Java -- Java Virado no Jiraya\par
+      Python Mundo 1, 2 e 3 -- Curso em Video\par
+      HTML5 \& CSS3 -- Curso em Video\par
+      DevOps · Imersao Python -- Alura\par
+      HDSE Leadership -- Lehigh University
+    }
+  \end{minipage}
+  \end{minipage}%
+}
+
+\begin{document}
+\begin{tcolorbox}[
+  enhanced, nobeforeafter,
+  width=210mm, height=297mm,
+  colback=white, colframe=white,
+  arc=0pt, outer arc=0pt, boxrule=0pt,
+  left=0pt, right=0pt, top=0pt, bottom=0pt,
+  overlay={
+    \fill[sidebg](frame.north west)rectangle($(frame.south west)+(\SW,0)$);
+    \fill[acc]   (frame.north west)rectangle($(frame.north west)+(\SW,-1.8mm)$);
+  }
+]
+  % sidebar
+  \noindent\usebox\Sidebar%
+  % main column
+  \hspace*{8mm}%
+  \begin{minipage}[t][297mm][t]{\MW}
+    \vspace{7mm}
+    %--- Summary ---
+    \msec{Resumo Profissional}
+    {\Plight\color{body}\fontsize{8.5pt}{12pt}\selectfont
+    Desenvolvedor back-end com mais de 2 anos construindo sistemas em Python e Java.
+    Co-fundador de uma das \textbf{top-6 maiores comunidades de programacao do Brasil} (18 mil+ membros).
+    Experiencia em CI/CD, APIs REST, agentes de IA generativa e modelos de ML.
+    Cursando Bacharelado em Ciencia da Computacao na Unisinos.
+    Ingles fluente --- pronto para atuar em equipes internacionais desde o primeiro dia.
+    }
+    \par
+    %--- Experience ---
+    \msec{Experiencia Profissional}
+    {\Pmed\color{body}\fontsize{9pt}{11pt}\selectfont Co-fundador \& Desenvolvedor Back-End}
+    \par\vspace{1pt}
+    {\color{acc}\fontsize{8pt}{9pt}\selectfont\textbf{Servidor dos Programadores}}%
+    \hfill{\color{sub}\fontsize{7.5pt}{9pt}\selectfont\textit{Jun 2022 -- Atual · Remoto}}
+    \par\vspace{1pt}
+    \begin{itemize}[leftmargin=4mm,label={\color{acc}\small$\bullet$},itemsep=0pt,topsep=2pt,parsep=0pt]
+      \item[\color{acc}\small$\bullet$]{\fontsize{7.5pt}{10.5pt}\selectfont\color{body}
+        Co-fundei e escalei uma das \textbf{top-6 comunidades de devs no Discord do Brasil}, chegando a 18 mil+ membros.}
+      \item[\color{acc}\small$\bullet$]{\fontsize{7.5pt}{10.5pt}\selectfont\color{body}
+        Desenvolvi \textbf{bots de IA} com Python \& Discord.py para moderacao, onboarding e suporte automatizado.}
+      \item[\color{acc}\small$\bullet$]{\fontsize{7.5pt}{10.5pt}\selectfont\color{body}
+        Organizei eventos com patrocinadores \textbf{Alura, Shard Cloud, Hostinger}; coordenei sessoes ao vivo.}
+      \item[\color{acc}\small$\bullet$]{\fontsize{7.5pt}{10.5pt}\selectfont\color{body}
+        Mantive \textbf{pipelines de CI/CD} via GitHub Actions para testes automaticos e deploy continuo.}
+    \end{itemize}
+    %--- Projects ---
+    \msec{Projetos Tecnicos}
+
+    \proj{Agente de Suporte Tecnico com IA}
+      {Python · LLMs · OpenAI GPT-4o · APIs RESTful}
+      {https://github.com/righibe/technical-suport-Agent}
+      {Agente de IA autonomo para suporte tecnico de primeiro nivel. Integra GPT-4o para resolucao contextual sem escalonamento humano.}
+
+    \proj{Pipeline de CI/CD em Python}
+      {Python · GitHub Actions · Docker · Flask}
+      {https://github.com/righibe/ci-cd-pipeline-python}
+      {Pipeline completo de CI/CD: testes automaticos em cada push, deploy com Docker ao sucesso. Praticas DevOps prontas para producao.}
+
+    \proj{Bot de IA Generativa para Discord}
+      {Python · Discord.py · API de LLM open-source}
+      {https://github.com/righibe/bot-discord-IAgenerativa}
+      {Bot do Discord com IA generativa open-source para suporte em tempo real a comunidade, com contexto multi-turno.}
+
+    \proj{Predicao de Precos de Imoveis -- Sao Paulo}
+      {Python · scikit-learn · Decision Tree · Random Forest}
+      {https://github.com/righibe/predict-prices-sp}
+      {Sistema de regressao ML que prediz valores de imoveis em Sao Paulo. Compara Decision Tree e Random Forest com analise de importancia de features.}
+
+    \proj{API REST CRUD -- Django \& SQL}
+      {Python · Django · REST Framework · MySQL}
+      {https://github.com/righibe/CRUD-Python-Django}
+      {API REST completa com Django + MySQL: validacao de dados, padroes DTO e tratamento de erros estruturado.}
+
+    \proj{API de Cadastro de Pessoas -- Java}
+      {Java · Spring Boot · JPA / Hibernate · Spring Web}
+      {https://github.com/righibe/Cadastro-pessoas}
+      {Servico RESTful Spring Boot para cadastro de usuarios com JPA, controllers REST limpos e persistencia via ORM.}
+
+    \vfill
+    {\color{rule}\hrule height .4pt}\vspace{2.5mm}
+    {\color{sub}\fontsize{6.5pt}{8pt}\selectfont
+      \href{https://righi.dev}{righi.dev}~·~%
+      \href{https://github.com/righibe}{github.com/righibe}~·~%
+      \href{mailto:bernardomicolrighi@outlook.com}{bernardomicolrighi@outlook.com}%
+      \hfill Atualizado em junho de 2026}
+  \end{minipage}
+\end{tcolorbox}
+\end{document}
