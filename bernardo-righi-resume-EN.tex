@@ -1,0 +1,123 @@
+\documentclass[10.5pt]{article}
+\usepackage[a4paper,margin=16mm,top=5mm,bottom=4mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\definecolor{acc}{HTML}{2563EB}
+\definecolor{textgray}{HTML}{555555}
+\definecolor{rule}{HTML}{CBD5E1}
+
+\hypersetup{colorlinks=true,urlcolor=acc,linkcolor=acc,
+  pdfauthor={Bernardo Micol Righi},pdftitle={Bernardo Righi Resume}}
+
+\setlength\parindent{0pt}\setlength\parskip{0pt}
+\pagestyle{empty}
+
+\newcommand\sect[1]{\vspace{3pt}{\color{acc}\bfseries\fontsize{10.5pt}{12pt}\selectfont #1}%
+  \par\vspace{0.5pt}{\color{rule}\hrule height .6pt}\vspace{2pt}}
+
+\newcommand\orgline[1]{{\color{acc}\underline{#1}}\par\vspace{0.5pt}}
+
+\newcommand\datesline[1]{{\color{textgray}\itshape\fontsize{8.5pt}{10pt}\selectfont #1}\par\vspace{1.5pt}}
+
+\newenvironment{bullets}{%
+  \begin{itemize}[leftmargin=4mm,label={\color{acc}\fontsize{8pt}{8pt}\selectfont --},itemsep=0.5pt,topsep=0pt,parsep=0pt]
+}{\end{itemize}\vspace{0pt}}
+
+\newcommand\projtitle[3]{% title, stack, github-url-text
+  {\bfseries #1}\par
+  {\fontsize{9pt}{11pt}\selectfont #2 \textbullet\ \href{https://#3}{#3}}\par\vspace{0.5pt}}
+
+\begin{document}
+
+{\fontsize{19pt}{21pt}\selectfont\bfseries Bernardo Micol Righi}\par\vspace{1pt}
+{\color{acc}\itshape\fontsize{10pt}{12pt}\selectfont Back-End Developer \textperiodcentered\ AI Systems \textperiodcentered\ Tech Influencer}\par\vspace{3pt}
+{\fontsize{9pt}{11pt}\selectfont
++55 (51) 99601-1501 \textperiodcentered\ \href{mailto:bernardomicolrighi@outlook.com}{bernardomicolrighi@outlook.com} \textperiodcentered\ \href{https://righi.dev}{righi.dev} \textperiodcentered\ \href{https://github.com/righibe}{github.com/righibe}\par
+\href{https://linkedin.com/in/bernardo-righi}{linkedin.com/in/bernardo-righi} \textperiodcentered\ \href{https://lattes.cnpq.br/8608406696939587}{lattes.cnpq.br/8608406696939587}
+}
+
+\sect{ABOUT}
+{\fontsize{9.3pt}{12pt}\selectfont
+Back-end developer with 2 years of experience in Python, AI, and automation. Researcher at Unisinos in partnership with Dell,
+focused on LLM agent observability using LangChain and OpenTelemetry. Co-founded the \href{https://discord.gg/}{Servidor dos Programadores}, one of
+the top-6 dev communities in Brazil on Discord (18k+ members). I also create content about programming and AI as a tech
+influencer. Fluent in English.}
+
+\sect{PROFESSIONAL EXPERIENCE}
+
+{\bfseries\fontsize{10pt}{12pt}\selectfont Researcher --- AI Agents \& Observability}\par\vspace{1pt}
+\orgline{Unisinos / Dell Technologies}
+\datesline{Jun 2026 -- Present \textperiodcentered\ Remote}
+\begin{bullets}
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Researching observability patterns for multi-agent systems, studying how to trace behavior, latency, and failures of AI agents in production.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Investigating strategies to trace tool calls, agent handoffs, and context propagation --- project in a research and architecture-prototyping phase alongside the Dell team.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Delivered a comparative study of 6 embedding-clustering pipelines (K-Means, UMAP, PaCMAP, LocalMAP, densMAP + HDBSCAN) on real support-ticket data, with statistical validation (trustworthiness, DBCV) grounded in the scientific literature, informing the team's approach to automatic topic discovery.
+\end{bullets}
+
+{\bfseries\fontsize{10pt}{12pt}\selectfont Co-founder \& Back-End Developer}\par\vspace{1pt}
+\orgline{Servidor dos Programadores}
+\datesline{Jun 2022 -- Present \textperiodcentered\ Remote}
+\begin{bullets}
+  \item\fontsize{9.2pt}{11.7pt}\selectfont The community was growing fast but losing members due to poor onboarding and moderation --- I built Python/Discord.py bots that automated welcomes and technical support, improving retention and reducing the team's manual work.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont As growth accelerated, the infrastructure needed zero-downtime deploys --- I set up CI/CD pipelines with GitHub Actions that automatically test and ship updates on every push, eliminating manual deploys.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Led the organization of technical events with sponsors like Alura, Shard Cloud, and Hostinger, coordinating speakers and live sessions for 18k+ developers.
+\end{bullets}
+
+\sect{PROJECTS}
+
+\projtitle{CI/CD Pipeline in Python}{Python \textperiodcentered\ GitHub Actions \textperiodcentered\ Docker \textperiodcentered\ Flask}{github.com/righibe/ci-cd-pipeline-python}
+\begin{bullets}
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Situation: no automated testing or deployment process --- every update was a production-bug risk.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Action: built a complete pipeline with GitHub Actions and Docker, running automated tests on every push and deploying to the container only if everything passed.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Result: eliminated manual deploys and gained the guarantee that only validated code reached the environment.
+\end{bullets}
+
+\projtitle{Housing Price Prediction --- Sao Paulo}{Python \textperiodcentered\ scikit-learn \textperiodcentered\ Decision Tree \textperiodcentered\ Random Forest}{github.com/righibe/predict-prices-sp}
+\begin{bullets}
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Situation: wanted to apply supervised ML to a real problem, moving beyond theory.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Action: trained and compared Decision Tree and Random Forest with scikit-learn to predict housing prices in Sao Paulo, analyzing feature importance.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Result: identified location and square footage as the dominant variables and solidified my hands-on foundation in regression.
+\end{bullets}
+
+\projtitle{People Registry REST API --- Java}{Java \textperiodcentered\ Spring Boot \textperiodcentered\ JPA / Hibernate \textperiodcentered\ Spring Web}{github.com/righibe/Cadastro-pessoas}
+\begin{bullets}
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Situation: I only had Python experience and needed to understand the Java ecosystem.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Action: built a REST API from scratch with Spring Boot and JPA, following the Controller $\rightarrow$ Service $\rightarrow$ Repository flow with DTO and ORM.
+  \item\fontsize{9.2pt}{11.7pt}\selectfont Result: a solid foundation in Java and clarity on the MVC pattern for enterprise projects.
+\end{bullets}
+
+\sect{TECHNICAL SKILLS}
+{\fontsize{9.2pt}{11.7pt}\selectfont
+\begin{tabular}{@{}p{28mm}p{140mm}@{}}
+\textbf{Languages} & Python, Java, C, C++, JavaScript, SQL \\
+\textbf{AI \& Agents} & LangChain, LangGraph, LCEL, RAG, LLMs, scikit-learn \\
+\textbf{Observability} & OpenTelemetry, Jaeger, Grafana, agent tracing \\
+\textbf{DevOps \& Infra} & Docker, GitHub Actions, CI/CD, Git, Linux \\
+\textbf{Frameworks} & Spring Boot, Django, Flask, Discord.py \\
+\textbf{Databases} & MySQL, JPA / Hibernate \\
+\end{tabular}}
+
+\sect{EDUCATION}
+{\bfseries\fontsize{10pt}{12pt}\selectfont B.Sc. in Computer Science}\par\vspace{1pt}
+{\fontsize{8.7pt}{11pt}\selectfont\itshape Universidade do Vale do Rio dos Sinos (Unisinos)\/\ \textperiodcentered\ Feb 2026 -- Present \textperiodcentered\ Sao Leopoldo, Brazil \textperiodcentered\ \href{https://lattes.cnpq.br/8608406696939587}{lattes.cnpq.br/8608406696939587}}
+
+\sect{COURSES \& CERTIFICATIONS}
+{\fontsize{9.2pt}{11.7pt}\selectfont
+Java Marathon (Java Virado no Jiraya) \textperiodcentered\ Python Worlds 1, 2 \& 3 \textperiodcentered\ HTML5 \& CSS3 (Curso em Video) \textperiodcentered\ DevOps \& Python
+Immersion (Alura) \textperiodcentered\ Design and Social Enterprise HDSE Leadership (Lehigh University)}
+
+\sect{LANGUAGES}
+{\fontsize{9.2pt}{11.7pt}\selectfont
+\textbf{Portuguese} --- Native ~~$\vert$~~ \textbf{English} --- Fluent (C1) ~~$\vert$~~ \textbf{Spanish} --- Intermediate (B1)}
+
+\vfill
+{\color{rule}\hrule height .5pt}\vspace{2.5mm}
+{\color{textgray}\fontsize{8pt}{10pt}\selectfont
+\href{https://righi.dev}{righi.dev} \textperiodcentered\ \href{https://github.com/righibe}{github.com/righibe} \textperiodcentered\ \href{https://linkedin.com/in/bernardo-righi}{linkedin.com/in/bernardo-righi} \textperiodcentered\ \href{https://lattes.cnpq.br/8608406696939587}{lattes.cnpq.br/8608406696939587} \textperiodcentered\ Updated June 2026}
+
+\end{document}
