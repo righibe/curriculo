@@ -1,15 +1,20 @@
 \documentclass[10.5pt]{article}
-\usepackage[a4paper,margin=16mm,top=5mm,bottom=4mm]{geometry}
+\usepackage[a4paper,margin=16mm,top=10mm,bottom=10mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{fontawesome5}
 
 \definecolor{acc}{HTML}{2563EB}
+\definecolor{accdark}{HTML}{1D4ED8}
 \definecolor{textgray}{HTML}{555555}
 \definecolor{rule}{HTML}{CBD5E1}
+\definecolor{chipbg}{HTML}{EFF4FF}
+\definecolor{chipfg}{HTML}{1D4ED8}
 
 \hypersetup{colorlinks=true,urlcolor=acc,linkcolor=acc,
   pdfauthor={Bernardo Micol Righi},pdftitle={Bernardo Righi Resume}}
@@ -17,103 +22,133 @@
 \setlength\parindent{0pt}\setlength\parskip{0pt}
 \pagestyle{empty}
 
-\newcommand\sect[1]{\vspace{3pt}{\color{acc}\bfseries\fontsize{10.5pt}{12pt}\selectfont #1}%
-  \par\vspace{0.5pt}{\color{rule}\hrule height .6pt}\vspace{2pt}}
+\newcommand\chip[1]{\tikz[baseline=(X.base)]{\node[fill=chipbg,rounded corners=2.5pt,inner xsep=5pt,inner ysep=2.5pt,draw=none] (X) {\color{chipfg}\fontsize{8.3pt}{8.3pt}\selectfont #1};}\hspace{2.5pt}}
 
-\newcommand\orgline[1]{{\color{acc}\underline{#1}}\par\vspace{0.5pt}}
+\newcommand\sect[1]{\vspace{9pt}{\color{accdark}\bfseries\fontsize{11.5pt}{13pt}\selectfont #1}%
+  \par\vspace{1.5pt}{\color{rule}\hrule height .7pt}\vspace{5pt}}
 
-\newcommand\datesline[1]{{\color{textgray}\itshape\fontsize{8.5pt}{10pt}\selectfont #1}\par\vspace{1.5pt}}
+\newcommand\orgline[1]{{\color{acc}\underline{#1}}\par\vspace{1pt}}
+
+\newcommand\datesline[1]{{\color{textgray}\itshape\fontsize{8.7pt}{10.5pt}\selectfont #1}\par\vspace{3pt}}
 
 \newenvironment{bullets}{%
-  \begin{itemize}[leftmargin=4mm,label={\color{acc}\fontsize{8pt}{8pt}\selectfont --},itemsep=0.5pt,topsep=0pt,parsep=0pt]
-}{\end{itemize}\vspace{0pt}}
+  \begin{itemize}[leftmargin=4.2mm,label={\color{acc}\fontsize{8pt}{8pt}\selectfont --},itemsep=3pt,topsep=1pt,parsep=0pt]
+}{\end{itemize}\vspace{2pt}}
 
 \newcommand\projtitle[3]{% title, stack, github-url-text
-  {\bfseries #1}\par
-  {\fontsize{9pt}{11pt}\selectfont #2 \textbullet\ \href{https://#3}{#3}}\par\vspace{0.5pt}}
+  {\bfseries\fontsize{10pt}{12pt}\selectfont #1}\par\vspace{1pt}
+  {\fontsize{8.8pt}{11pt}\selectfont\itshape #2}\quad{\fontsize{8.5pt}{11pt}\selectfont\faGithub\ \href{https://#3}{#3}}\par\vspace{3pt}}
 
 \begin{document}
 
-{\fontsize{19pt}{21pt}\selectfont\bfseries Bernardo Micol Righi}\par\vspace{1pt}
-{\color{acc}\itshape\fontsize{10pt}{12pt}\selectfont Back-End Developer \textperiodcentered\ AI Systems \textperiodcentered\ Tech Influencer}\par\vspace{3pt}
-{\fontsize{9pt}{11pt}\selectfont
-+55 (51) 99601-1501 \textperiodcentered\ \href{mailto:bernardomicolrighi@outlook.com}{bernardomicolrighi@outlook.com} \textperiodcentered\ \href{https://righi.dev}{righi.dev} \textperiodcentered\ \href{https://github.com/righibe}{github.com/righibe}\par
-\href{https://linkedin.com/in/bernardo-righi}{linkedin.com/in/bernardo-righi} \textperiodcentered\ \href{https://lattes.cnpq.br/8608406696939587}{lattes.cnpq.br/8608406696939587}
+\noindent\colorbox{acc}{\begin{minipage}[c][24mm][c]{\dimexpr\linewidth-2\fboxsep\relax}
+{\color{white}\fontsize{23pt}{25pt}\selectfont\bfseries Bernardo Micol Righi}\par\vspace{2pt}
+{\color{white}\itshape\fontsize{11pt}{13pt}\selectfont Back-End Developer \textperiodcentered\ AI Systems \textperiodcentered\ Tech Influencer}\par\vspace{6pt}
+{\color{white}\fontsize{9pt}{12pt}\selectfont
+\faPhone\ +55 (51) 99601-1501 \quad \faEnvelope\ \href{mailto:bernardomicolrighi@outlook.com}{\textcolor{white}{bernardomicolrighi@outlook.com}} \quad \faGlobe\ \href{https://righi.dev}{\textcolor{white}{righi.dev}}\par\vspace{2pt}
+\faGithub\ \href{https://github.com/righibe}{\textcolor{white}{github.com/righibe}} \quad \faLinkedin\ \href{https://linkedin.com/in/bernardo-righi}{\textcolor{white}{linkedin.com/in/bernardo-righi}} \quad \faGraduationCap\ \href{https://lattes.cnpq.br/8608406696939587}{\textcolor{white}{lattes.cnpq.br/8608406696939587}}
 }
+\end{minipage}}
 
-\sect{ABOUT}
-{\fontsize{9.3pt}{12pt}\selectfont
+\vspace{10pt}
+
+\sect{\faUser\ ABOUT}
+{\fontsize{9.5pt}{13.5pt}\selectfont
 Back-end developer with 2 years of experience in Python, AI, and automation. Researcher at Unisinos in partnership with Dell,
 focused on LLM agent observability using LangChain and OpenTelemetry. Co-founded the \href{https://discord.gg/}{Servidor dos Programadores}, one of
 the top-6 dev communities in Brazil on Discord (18k+ members). I also create content about programming and AI as a tech
 influencer. Fluent in English.}
 
-\sect{PROFESSIONAL EXPERIENCE}
+\sect{\faBriefcase\ PROFESSIONAL EXPERIENCE}
 
-{\bfseries\fontsize{10pt}{12pt}\selectfont Researcher --- AI Agents \& Observability}\par\vspace{1pt}
+{\bfseries\fontsize{10.5pt}{13pt}\selectfont Researcher --- AI Agents \& Observability}\par\vspace{1pt}
 \orgline{Unisinos / Dell Technologies}
 \datesline{Jun 2026 -- Present \textperiodcentered\ Remote}
 \begin{bullets}
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Researching observability patterns for multi-agent systems, studying how to trace behavior, latency, and failures of AI agents in production.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Investigating strategies to trace tool calls, agent handoffs, and context propagation --- project in a research and architecture-prototyping phase alongside the Dell team.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Delivered a comparative study of 6 embedding-clustering pipelines (K-Means, UMAP, PaCMAP, LocalMAP, densMAP + HDBSCAN) on real support-ticket data, with statistical validation (trustworthiness, DBCV) grounded in the scientific literature, informing the team's approach to automatic topic discovery.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Researching observability patterns for multi-agent systems, studying how to trace behavior, latency, and failures of AI agents in production.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Investigating strategies to trace tool calls, agent handoffs, and context propagation --- project in a research and architecture-prototyping phase alongside the Dell team.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Delivered a comparative study of 6 embedding-clustering pipelines (K-Means, UMAP, PaCMAP, LocalMAP, densMAP + HDBSCAN) on real support-ticket data, with statistical validation (trustworthiness, DBCV) grounded in the scientific literature, informing the team's approach to automatic topic discovery.
 \end{bullets}
 
-{\bfseries\fontsize{10pt}{12pt}\selectfont Co-founder \& Back-End Developer}\par\vspace{1pt}
+{\bfseries\fontsize{10.5pt}{13pt}\selectfont Co-founder \& Back-End Developer}\par\vspace{1pt}
 \orgline{Servidor dos Programadores}
 \datesline{Jun 2022 -- Present \textperiodcentered\ Remote}
 \begin{bullets}
-  \item\fontsize{9.2pt}{11.7pt}\selectfont The community was growing fast but losing members due to poor onboarding and moderation --- I built Python/Discord.py bots that automated welcomes and technical support, improving retention and reducing the team's manual work.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont As growth accelerated, the infrastructure needed zero-downtime deploys --- I set up CI/CD pipelines with GitHub Actions that automatically test and ship updates on every push, eliminating manual deploys.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Led the organization of technical events with sponsors like Alura, Shard Cloud, and Hostinger, coordinating speakers and live sessions for 18k+ developers.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont The community was growing fast but losing members due to poor onboarding and moderation --- I built Python/Discord.py bots that automated welcomes and technical support, improving retention and reducing the team's manual work.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont As growth accelerated, the infrastructure needed zero-downtime deploys --- I set up CI/CD pipelines with GitHub Actions that automatically test and ship updates on every push, eliminating manual deploys.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Led the organization of technical events with sponsors like Alura, Shard Cloud, and Hostinger, coordinating speakers and live sessions for 18k+ developers.
 \end{bullets}
 
-\sect{PROJECTS}
+\sect{\faCogs\ TECHNICAL SKILLS}
+{\fontsize{9pt}{15pt}\selectfont
+\textbf{Languages:} \chip{Python}\chip{Java}\chip{C}\chip{C++}\chip{JavaScript}\chip{SQL}\par\vspace{4pt}
+\textbf{AI \& Agents:} \chip{LangChain}\chip{LangGraph}\chip{LCEL}\chip{RAG}\chip{LLMs}\chip{scikit-learn}\par\vspace{4pt}
+\textbf{Observability:} \chip{OpenTelemetry}\chip{Jaeger}\chip{Grafana}\chip{Agent Tracing}\par\vspace{4pt}
+\textbf{DevOps \& Infra:} \chip{Docker}\chip{GitHub Actions}\chip{CI/CD}\chip{Git}\chip{Linux}\par\vspace{4pt}
+\textbf{Frameworks:} \chip{Spring Boot}\chip{Django}\chip{Flask}\chip{Discord.py}\par\vspace{4pt}
+\textbf{Databases:} \chip{MySQL}\chip{JPA / Hibernate}
+}
+
+\sect{\faGraduationCap\ EDUCATION}
+{\bfseries\fontsize{10.5pt}{13pt}\selectfont B.Sc. in Computer Science}\par\vspace{1pt}
+{\fontsize{9pt}{12pt}\selectfont\itshape Universidade do Vale do Rio dos Sinos (Unisinos)\/}\par
+{\fontsize{9pt}{12pt}\selectfont Feb 2026 -- Present \textperiodcentered\ Sao Leopoldo, Brazil \textperiodcentered\ \href{https://lattes.cnpq.br/8608406696939587}{lattes.cnpq.br/8608406696939587}}
+
+\sect{\faBook\ COURSES \& CERTIFICATIONS}
+{\fontsize{9.5pt}{13.5pt}\selectfont
+Java Marathon (Java Virado no Jiraya) \textperiodcentered\ Python Worlds 1, 2 \& 3 \textperiodcentered\ HTML5 \& CSS3 (Curso em Video) \textperiodcentered\ DevOps \& Python
+Immersion (Alura) \textperiodcentered\ Design and Social Enterprise HDSE Leadership (Lehigh University)}
+
+\sect{\faLanguage\ LANGUAGES}
+{\fontsize{9.5pt}{13.5pt}\selectfont
+\textbf{Portuguese} --- Native ~~$\vert$~~ \textbf{English} --- Fluent (C1) ~~$\vert$~~ \textbf{Spanish} --- Intermediate (B1)}
+
+\newpage
+\vspace*{4mm}
+
+\sect{\faRocket\ PROJECTS}
+
+\projtitle{AI Technical Support Agent}{Python \textperiodcentered\ LLMs \textperiodcentered\ OpenAI GPT-4o \textperiodcentered\ RESTful APIs}{github.com/righibe/technical-suport-Agent}
+\begin{bullets}
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Situation: first-line technical support tickets needed faster triage without waiting on a human agent.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Action: built an autonomous agent in Python powered by GPT-4o to interpret tickets and generate contextual resolutions through RESTful APIs.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Result: automated first-level responses for common cases without human escalation.
+\end{bullets}
 
 \projtitle{CI/CD Pipeline in Python}{Python \textperiodcentered\ GitHub Actions \textperiodcentered\ Docker \textperiodcentered\ Flask}{github.com/righibe/ci-cd-pipeline-python}
 \begin{bullets}
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Situation: no automated testing or deployment process --- every update was a production-bug risk.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Action: built a complete pipeline with GitHub Actions and Docker, running automated tests on every push and deploying to the container only if everything passed.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Result: eliminated manual deploys and gained the guarantee that only validated code reached the environment.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Situation: no automated testing or deployment process --- every update was a production-bug risk.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Action: built a complete pipeline with GitHub Actions and Docker, running automated tests on every push and deploying to the container only if everything passed.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Result: eliminated manual deploys and gained the guarantee that only validated code reached the environment.
+\end{bullets}
+
+\projtitle{Generative AI Discord Bot}{Python \textperiodcentered\ Discord.py \textperiodcentered\ Open-source LLM API}{github.com/righibe/bot-discord-IAgenerativa}
+\begin{bullets}
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Situation: the community wanted real-time AI assistance inside Discord without relying on paid APIs.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Action: built a bot with Discord.py integrating an open-source generative AI API, handling multi-turn conversation context.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Result: gave 18k+ community members free, real-time AI support directly inside the server.
 \end{bullets}
 
 \projtitle{Housing Price Prediction --- Sao Paulo}{Python \textperiodcentered\ scikit-learn \textperiodcentered\ Decision Tree \textperiodcentered\ Random Forest}{github.com/righibe/predict-prices-sp}
 \begin{bullets}
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Situation: wanted to apply supervised ML to a real problem, moving beyond theory.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Action: trained and compared Decision Tree and Random Forest with scikit-learn to predict housing prices in Sao Paulo, analyzing feature importance.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Result: identified location and square footage as the dominant variables and solidified my hands-on foundation in regression.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Situation: wanted to apply supervised ML to a real problem, moving beyond theory.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Action: trained and compared Decision Tree and Random Forest with scikit-learn to predict housing prices in Sao Paulo, analyzing feature importance.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Result: identified location and square footage as the dominant variables and solidified my hands-on foundation in regression.
+\end{bullets}
+
+\projtitle{CRUD REST API --- Django \& SQL}{Python \textperiodcentered\ Django \textperiodcentered\ REST Framework \textperiodcentered\ MySQL}{github.com/righibe/CRUD-Python-Django}
+\begin{bullets}
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Situation: needed hands-on practice with Django's ORM and REST patterns beyond Flask.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Action: built a full CRUD REST API with Django connected to a SQL database, structuring validation and serialization.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Result: solidified Django fundamentals and REST API design patterns transferable to production work.
 \end{bullets}
 
 \projtitle{People Registry REST API --- Java}{Java \textperiodcentered\ Spring Boot \textperiodcentered\ JPA / Hibernate \textperiodcentered\ Spring Web}{github.com/righibe/Cadastro-pessoas}
 \begin{bullets}
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Situation: I only had Python experience and needed to understand the Java ecosystem.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Action: built a REST API from scratch with Spring Boot and JPA, following the Controller $\rightarrow$ Service $\rightarrow$ Repository flow with DTO and ORM.
-  \item\fontsize{9.2pt}{11.7pt}\selectfont Result: a solid foundation in Java and clarity on the MVC pattern for enterprise projects.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Situation: only had Python experience and needed to understand the Java ecosystem.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Action: built a REST API from scratch with Spring Boot and JPA, following the Controller $\rightarrow$ Service $\rightarrow$ Repository flow with DTO and ORM.
+  \item\fontsize{9.5pt}{13.5pt}\selectfont Result: a solid foundation in Java and clarity on the MVC pattern for enterprise projects.
 \end{bullets}
-
-\sect{TECHNICAL SKILLS}
-{\fontsize{9.2pt}{11.7pt}\selectfont
-\begin{tabular}{@{}p{28mm}p{140mm}@{}}
-\textbf{Languages} & Python, Java, C, C++, JavaScript, SQL \\
-\textbf{AI \& Agents} & LangChain, LangGraph, LCEL, RAG, LLMs, scikit-learn \\
-\textbf{Observability} & OpenTelemetry, Jaeger, Grafana, agent tracing \\
-\textbf{DevOps \& Infra} & Docker, GitHub Actions, CI/CD, Git, Linux \\
-\textbf{Frameworks} & Spring Boot, Django, Flask, Discord.py \\
-\textbf{Databases} & MySQL, JPA / Hibernate \\
-\end{tabular}}
-
-\sect{EDUCATION}
-{\bfseries\fontsize{10pt}{12pt}\selectfont B.Sc. in Computer Science}\par\vspace{1pt}
-{\fontsize{8.7pt}{11pt}\selectfont\itshape Universidade do Vale do Rio dos Sinos (Unisinos)\/\ \textperiodcentered\ Feb 2026 -- Present \textperiodcentered\ Sao Leopoldo, Brazil \textperiodcentered\ \href{https://lattes.cnpq.br/8608406696939587}{lattes.cnpq.br/8608406696939587}}
-
-\sect{COURSES \& CERTIFICATIONS}
-{\fontsize{9.2pt}{11.7pt}\selectfont
-Java Marathon (Java Virado no Jiraya) \textperiodcentered\ Python Worlds 1, 2 \& 3 \textperiodcentered\ HTML5 \& CSS3 (Curso em Video) \textperiodcentered\ DevOps \& Python
-Immersion (Alura) \textperiodcentered\ Design and Social Enterprise HDSE Leadership (Lehigh University)}
-
-\sect{LANGUAGES}
-{\fontsize{9.2pt}{11.7pt}\selectfont
-\textbf{Portuguese} --- Native ~~$\vert$~~ \textbf{English} --- Fluent (C1) ~~$\vert$~~ \textbf{Spanish} --- Intermediate (B1)}
 
 \vfill
 {\color{rule}\hrule height .5pt}\vspace{2.5mm}
